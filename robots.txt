@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /api.php
+Disallow: /db.json
+Disallow: /auth.php
+Disallow: /movies.php
+
+Sitemap: https://flk-stream.xo.je/sitemap.xml
