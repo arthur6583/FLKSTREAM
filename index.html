@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FLK STREAM | Films et Séries VF en HD</title>
+    <meta name="description"
+        content="Découvrez le catalogue FLK Stream : des milliers de films et séries populaires en VF Haute Définition. Profitez d'une expérience cinématographique immersive.">
+    <meta name="keywords" content="streaming VF, films VF, films en streaming, séries populaires, VF HD, cinéma à la maison, catalogue films, nouveautés cinéma">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://flk-stream.xo.je/">
+    
+    <meta property="og:title" content="FLK STREAM | Films et Séries VF en HD">
+    <meta property="og:description" content="Découvrez le meilleur du streaming VF avec FLK Stream. Regardez vos films et séries incontournables en Haute Définition.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://flk-stream.xo.je/">
+    <meta property="og:site_name" content="FLK Stream">
+    <link rel="stylesheet" href="style.css?v=4">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    
+    <style>
+        /* Smooth reveal animations */
+        @keyframes reveal-up {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .reveal-on-scroll {
+            opacity: 0;
+            animation: reveal-up 0.8s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+        }
+        
+        .reveal-delay-1 { animation-delay: 0.1s; }
+        .reveal-delay-2 { animation-delay: 0.2s; }
+        .reveal-delay-3 { animation-delay: 0.3s; }
+        .reveal-delay-4 { animation-delay: 0.4s; }
+        
+        /* Smooth scale effect for cards */
+        @keyframes scale-in {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        /* Hero parallax effect */
+        .hero-parallax {
+            will-change: transform;
+        }
+        
+        /* Page load fade in */
+        @keyframes page-fade-in {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        body {
+            animation: page-fade-in 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+        
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Animated Background Particles -->
+    <div class="bg-particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <span class="logo-text">FLK</span>
+                <ul class="nav-links">
+                    <li><a href="#" class="nav-link active" data-target="home-view">Accueil</a></li>
+                    <li><a href="#" class="nav-link" data-target="catalogue-view">Catalogue</a></li>
+                    <li><a href="#" class="nav-link" data-target="watchlist-view">Ma liste</a></li>
+                    <li><a href="#" class="nav-link" data-target="requests-view">Demandes</a></li>
+                </ul>
+            </div>
+            <div class="nav-right nav-icons">
+                <button class="icon-btn search-btn" aria-label="Rechercher">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </button>
+                <div class="nav-notification">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                        <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                    </svg>
+                </div>
+                <div class="profile-container profile-btn" id="nav-profile-group" style="display: none;">
+                    <div class="profile-circle"></div>
+                    <span class="profile-arrow"></span>
+
+                    <!-- Profile Dropdown -->
+                    <div class="profile-dropdown" id="profile-dropdown">
+                        <div class="dropdown-arrow"></div>
+                        <ul class="dropdown-menu">
+                            <li id="switch-profile-btn">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M17 2l4 4-4 4M3 21v-2a4 4 0 0 1 4-4h10"></path>
+                                </svg>
+                                Changer de profil
+                            </li>
+                            <li id="manage-profiles-nav">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                                </svg>
+                                Gérer les profils
+                            </li>
+                            <hr>
+                            <li id="logout-btn">Se déconnecter de FLK</li>
+                        </ul>
+                    </div>
+                </div>
+                <button class="btn btn-play login-nav-btn" id="nav-login-btn"
+                    style="padding: 5px 15px; font-size: 0.9rem; min-width: auto; width: auto;">S'identifier</button>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div id="home-view">
+            <section class="hero-section" id="hero-banner">
+                <div class="hero-background" id="hero-bg">
+                    <div class="hero-vignette-top"></div>
+                    <div class="hero-vignette-bottom"></div>
+                    <div class="hero-vignette-left"></div>
+                    <div class="hero-vignette-right"></div>
+                </div>
+
+                <div class="hero-content">
+                    <div class="hero-logo-title-container">
+                        <span class="netflix-original best-movies">
+                            <span class="n-logo">🏆</span> MEILLEURS FILMS
+                        </span>
+                        <h1 class="hero-title" id="hero-title">LE FUTUR DE L'IMMERSION</h1>
+                    </div>
+
+                    <div class="hero-meta" id="hero-meta">
+                        <span class="match-score">Recommandé à 98%</span>
+                        <span class="year" id="hero-year">2026</span>
+                        <span class="age-rating">+16</span>
+                        <span class="duration" id="hero-duration">2h 15m</span>
+                        <span class="quality">HD</span>
+                    </div>
+
+                    <p class="hero-description" id="hero-description">Plongez dans des univers extraordinaires avec une
+                        qualité d'image et sonore sans précédent.</p>
+
+                    <div class="hero-actions">
+                        <a id="hero-play-link" href="#" target="_blank" class="btn btn-play netflix-play-btn">
+                            <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28">
+                                <path d="M8 5v14l11-7z" />
+                            </svg> Lecture
+                        </a>
+                        <button class="btn btn-info more-info-btn" id="hero-info-btn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28"
+                                height="28">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="12" y1="16" x2="12" y2="12"></line>
+                                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                            </svg> Plus d'infos
+                        </button>
+                    </div>
+                </div>
+
+                <div class="hero-controls">
+                    <button class="mute-btn icon-btn" id="hero-mute-btn" aria-label="Volume">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20"
+                            height="20">
+                            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                            <line x1="23" y1="9" x2="17" y2="15"></line>
+                            <line x1="17" y1="9" x2="23" y2="15"></line>
+                        </svg>
+                    </button>
+                    <div class="age-rating-box" id="hero-age-box">16+</div>
+                </div>
+            </section>
+
+            <section class="content-row-section" id="continue-watching-section" style="display: none;">
+                <h2 class="row-title">Reprendre la lecture pour vous</h2>
+                <div class="slider-wrapper">
+                    <button class="slider-btn left-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg></button>
+                    <div class="row-container" id="continue-row">
+                        <!-- Cards will be injected by JS -->
+                    </div>
+                    <button class="slider-btn right-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg></button>
+                </div>
+            </section>
+
+            <section class="content-row-section">
+                <h2 class="row-title">Top 10 des films aujourd'hui</h2>
+                <div class="slider-wrapper">
+                    <button class="slider-btn left-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg></button>
+                    <div class="row-container top-10-row" id="top-10-row">
+                        <!-- Special numbered cards will be injected by JS -->
+                    </div>
+                    <button class="slider-btn right-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg></button>
+                </div>
+            </section>
+
+            <section class="content-row-section">
+                <h2 class="row-title">Tendances actuelles</h2>
+                <div class="slider-wrapper">
+                    <button class="slider-btn left-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg></button>
+                    <div class="row-container" id="trending-row">
+                        <!-- Cards will be injected by JS -->
+                    </div>
+                    <button class="slider-btn right-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg></button>
+                </div>
+            </section>
+
+            <section class="content-row-section">
+                <h2 class="row-title">Films d'Action et Aventure</h2>
+                <div class="slider-wrapper">
+                    <button class="slider-btn left-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg></button>
+                    <div class="row-container" id="action-row">
+                        <!-- Cards will be injected by JS -->
+                    </div>
+                    <button class="slider-btn right-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg></button>
+                </div>
+            </section>
+
+            <section class="content-row-section">
+                <h2 class="row-title">Films d'Horreur</h2>
+                <div class="slider-wrapper">
+                    <button class="slider-btn left-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg></button>
+                    <div class="row-container" id="horror-row">
+                        <!-- Cards will be injected by JS -->
+                    </div>
+                    <button class="slider-btn right-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg></button>
+                </div>
+            </section>
+
+            <section class="content-row-section">
+                <h2 class="row-title">Comédies</h2>
+                <div class="slider-wrapper">
+                    <button class="slider-btn left-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg></button>
+                    <div class="row-container" id="comedy-row">
+                        <!-- Cards will be injected by JS -->
+                    </div>
+                    <button class="slider-btn right-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg></button>
+                </div>
+            </section>
+
+            <section class="content-row-section">
+                <h2 class="row-title">Films d'Animation</h2>
+                <div class="slider-wrapper">
+                    <button class="slider-btn left-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg></button>
+                    <div class="row-container" id="animation-row">
+                        <!-- Cards will be injected by JS -->
+                    </div>
+                    <button class="slider-btn right-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg></button>
+                </div>
+            </section>
+
+            <section class="content-row-section">
+                <h2 class="row-title">Films d'Aventure</h2>
+                <div class="slider-wrapper">
+                    <button class="slider-btn left-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg></button>
+                    <div class="row-container" id="adventure-row">
+                        <!-- Cards will be injected by JS -->
+                    </div>
+                    <button class="slider-btn right-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg></button>
+                </div>
+            </section>
+        </div>
+
+        <div id="catalogue-view" style="display: none; padding-top: 120px;">
+            <section class="container catalogue-container">
+                <div class="request-header" style="margin: 0 4%;">
+                    <h1 class="row-title" style="font-size: 2.5rem; margin-bottom: 1rem; padding-left: 0;">Catalogue Complet</h1>
+                    <p style="color: #888; margin-bottom: 2rem;">Découvrez tous les films disponibles sur FLK STREAM</p>
+                </div>
+                
+                <!-- Search and Filter -->
+                <div class="catalogue-filters" style="margin: 0 4% 2rem 4%; display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <input type="text" id="catalogue-search" placeholder="Rechercher un film..." 
+                        style="flex: 1; min-width: 200px; padding: 12px 16px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; color: #fff; font-size: 0.95rem;">
+                    <select id="catalogue-genre"
+                        style="min-width: 150px; padding: 12px 16px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; color: #fff; font-size: 0.95rem; cursor: pointer;">
+                        <option value="">Tous les genres</option>
+                        <option value="Action">Action</option>
+                        <option value="Horreur">Horreur</option>
+                        <option value="Comédie">Comédie</option>
+                        <option value="Animation">Animation</option>
+                        <option value="Aventure">Aventure</option>
+                        <option value="Drame">Drame</option>
+                        <option value="Thriller">Thriller</option>
+                    </select>
+                    <select id="catalogue-year" 
+                        style="min-width: 120px; padding: 12px 16px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; color: #fff; font-size: 0.95rem; cursor: pointer;">
+                        <option value="">Toutes les années</option>
+                        <option value="2026">2026</option>
+                        <option value="2025">2025</option>
+                        <option value="2024">2024</option>
+                        <option value="2023">2023</option>
+                        <option value="2022">2022</option>
+                        <option value="2021">2021</option>
+                        <option value="2020">2020</option>
+                        <option value="2019">2019</option>
+                        <option value="2018">2018</option>
+                    </select>
+                    <select id="catalogue-sort" 
+                        style="min-width: 150px; padding: 12px 16px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; color: #fff; font-size: 0.95rem; cursor: pointer;">
+                        <option value="note">Meilleures notes</option>
+                        <option value="recent">Plus récents</option>
+                        <option value="alpha">A-Z</option>
+                    </select>
+                </div>
+                
+                <!-- Movies Grid -->
+                <div class="row-container" id="catalogue-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; padding: 0 4%;">
+                    <!-- All movies will be injected here -->
+                </div>
+                
+                <!-- Empty State -->
+                <div id="catalogue-empty" style="display: none; text-align: center; color: #888; padding: 60px 0;">
+                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin-bottom: 1rem; opacity: 0.5;">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                    <p style="font-size: 1.2rem;">Aucun film trouvé</p>
+                    <p style="font-size: 0.9rem; margin-top: 0.5rem;">Essayez de modifier vos filtres de recherche</p>
+                </div>
+                
+                <!-- Results count -->
+                <div id="catalogue-count" style="text-align: center; color: #888; padding: 2rem 0; font-size: 0.9rem;"></div>
+            </section>
+        </div>
+
+        <div id="watchlist-view" style="display: none; padding-top: 120px;">
+            <section class="container watchlist-container">
+                <div class="request-header" style="margin: 0 4%;">
+                    <h1 class="row-title" style="font-size: 2.5rem; margin-bottom: 2rem; padding-left: 0;">Ma Liste</h1>
+                </div>
+                <div class="row-container" id="watchlist-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; padding: 0 4%;">
+                    <!-- Watchlist items will be injected here -->
+                </div>
+                <div id="watchlist-empty" style="display: none; text-align: center; color: #888; padding: 40px 0;">
+                    <p>Votre liste est vide. Ajoutez des films pour les retrouver ici !</p>
+                </div>
+            </section>
+        </div>
+
+        <div id="requests-view" style="display: none; padding-top: 120px;">
+            <section class="container requests-container">
+                <div class="request-header">
+                    <h1 class="section-title">Demandes de Films</h1>
+                    <p>Vous ne trouvez pas votre film ? Faites une demande ici et nous tenterons de l'ajouter !</p>
+                </div>
+
+                <div class="request-card-form">
+                    <form id="movie-request-form">
+                        <div class="form-group">
+                            <input type="text" id="request-username" placeholder="Votre nom d'utilisateur" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="request-movie-title" placeholder="Nom du film souhaité" required>
+                        </div>
+                        <button type="submit" class="btn btn-play w-100">Envoyer la demande</button>
+                    </form>
+                </div>
+
+                <div class="public-requests">
+                    <h2 class="row-title">Demandes en cours</h2>
+                    <div id="requests-list" class="requests-grid">
+                        <!-- Public requests will be injected here -->
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Mobile Bottom Navigation -->
+    <nav class="mobile-bottom-nav">
+        <a href="#" class="mobile-nav-item active" data-target="home-view">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+            <span>Accueil</span>
+        </a>
+        <a href="#" class="mobile-nav-item" data-target="catalogue-view">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <rect x="3" y="3" width="7" height="7"></rect>
+                <rect x="14" y="3" width="7" height="7"></rect>
+                <rect x="14" y="14" width="7" height="7"></rect>
+                <rect x="3" y="14" width="7" height="7"></rect>
+            </svg>
+            <span>Catalogue</span>
+        </a>
+        <a href="#" class="mobile-nav-item search-btn-mobile">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <span>Recherche</span>
+        </a>
+        <a href="#" class="mobile-nav-item" data-target="watchlist-view">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+            <span>Ma Liste</span>
+        </a>
+        <a href="#" class="mobile-nav-item" id="mobile-profile-btn">
+            <div class="mobile-profile-circle"></div>
+            <span>Profil</span>
+        </a>
+    </nav>
+
+
+    <!-- Mobile Profile Bottom Sheet -->
+    <div id="mobile-profile-sheet" class="mobile-sheet-overlay">
+        <div class="mobile-sheet-container">
+            <div class="mobile-sheet-handle"></div>
+            <div id="mobile-sheet-logged-in" style="display:none;">
+                <div class="mobile-sheet-user" id="mobile-sheet-username"></div>
+                <button class="mobile-sheet-item" id="mobile-sheet-switch">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                        <path d="M17 2l4 4-4 4M3 21v-2a4 4 0 0 1 4-4h10" />
+                    </svg>
+                    Changer de profil
+                </button>
+                <button class="mobile-sheet-item" id="mobile-sheet-manage">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+                    </svg>
+                    Gérer les profils
+                </button>
+                <hr style="border-color:rgba(255,255,255,0.1); margin: 8px 0;">
+                <button class="mobile-sheet-item danger" id="mobile-sheet-logout">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                        <polyline points="16 17 21 12 16 7" />
+                        <line x1="21" y1="12" x2="9" y2="12" />
+                    </svg>
+                    Se déconnecter
+                </button>
+            </div>
+            <div id="mobile-sheet-logged-out" style="display:none;">
+                <p class="mobile-sheet-title">Mon compte</p>
+                <button class="mobile-sheet-item primary" id="mobile-sheet-login">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                        <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
+                        <polyline points="10 17 15 12 10 7" />
+                        <line x1="15" y1="12" x2="3" y2="12" />
+                    </svg>
+                    Se connecter / S'inscrire
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="social-links">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                </svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path
+                        d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z">
+                    </path>
+                    <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+                </svg>
+            </div>
+            <ul class="footer-links">
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">Centre d'aide</a></li>
+                <li><a href="#">Conditions d'utilisation</a></li>
+                <li><a href="#">Confidentialité</a></li>
+            </ul>
+            <p>&copy; 2026 FLK STREAM. Plateforme Streaming V3.</p>
+        </div>
+    </footer>
+
+    <!-- Auth Overlay (Login/Register) -->
+    <div id="auth-overlay" class="overlay">
+        <div class="overlay-content auth-modal-content">
+            <div class="logo large" style="margin-bottom: 30px;">FLK STREAM</div>
+
+            <!-- Login View -->
+            <div id="login-view" class="auth-view active-view">
+                <h2 class="overlay-title">S'identifier</h2>
+                <form id="login-form" class="auth-form">
+                    <div class="form-group">
+                        <input type="email" id="login-email" placeholder="E-mail" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="login-password" placeholder="Mot de passe" required>
+                    </div>
+                    <div id="login-error" class="auth-error"></div>
+                    <button type="submit" class="btn btn-play w-100" style="margin-top: 10px;">S'identifier</button>
+                    <p class="auth-switch">Première visite sur FLK STREAM ? <span id="to-register"
+                            class="text-link">Inscrivez-vous.</span></p>
+                    <div style="text-align: center; margin-top: 25px;">
+                        <button type="button" id="skip-auth-login" class="btn-skip">Continuer sans se connecter</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Register View -->
+            <div id="register-view" class="auth-view" style="display: none;">
+                <h2 class="overlay-title">Créer un compte</h2>
+                <form id="register-form" class="auth-form">
+                    <div class="form-group">
+                        <input type="email" id="register-email" placeholder="E-mail" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="register-password" minlength="4"
+                            placeholder="Mot de passe (min 4 caractères)" required>
+                    </div>
+                    <div id="register-error" class="auth-error"></div>
+                    <button type="submit" class="btn btn-play w-100" style="margin-top: 10px;">S'inscrire</button>
+                    <p class="auth-switch">Vous avez déjà un compte ? <span id="to-login"
+                            class="text-link">Identifiez-vous.</span></p>
+                    <div style="text-align: center; margin-top: 25px;">
+                        <button type="button" id="skip-auth-register" class="btn-skip">Continuer sans se
+                            connecter</button>
+                    </div>
+                </form>
+            </div>
+
+            <p class="overlay-footer" style="margin-top: 20px; font-size: 0.8rem;">Cette page est protégée par Google
+                reCAPTCHA pour nous assurer que vous n'êtes pas un robot.</p>
+        </div>
+    </div>
+
+    <!-- Verification Overlay (kept the same logic but updated classes if needed) -->
+    <div id="verification-overlay" class="overlay">
+        <div class="overlay-content">
+            <div class="logo large">FLK STREAM</div>
+            <h2 class="overlay-title">Accès Réservé</h2>
+            <p class="overlay-text">Pour accéder au catalogue complet et aux dernières nouveautés, rejoignez notre
+                communauté Discord et vérifiez votre accès.</p>
+            <div class="overlay-actions">
+                <a href="https://discord.gg/atWBtmQxMP" target="_blank" class="btn btn-play discord-btn">Rejoindre
+                    Discord</a>
+                <button id="verify-access-btn" class="btn btn-info">Vérifier l'accès</button>
+            </div>
+            <p class="overlay-footer">Une vérification rapide est nécessaire pour garantir la sécurité du site.</p>
+        </div>
+    </div>
+
+    <!-- Netflix Style Details Modal -->
+    <div id="movie-modal" class="modal-netflix">
+        <div class="modal-backdrop-netflix"></div>
+        <div class="modal-container-netflix" id="modal-container-netflix">
+            <div class="modal-hero-netflix" id="modal-bg">
+                <button class="close-modal-netflix" aria-label="Fermer">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+                <div class="modal-vignette-bottom"></div>
+                <!-- Controls and Title inside hero -->
+                <div class="modal-hero-content">
+                    <h2 id="modal-title" class="modal-title-netflix"></h2>
+                    <div class="modal-hero-actions">
+                        <a id="play-button" href="#" target="_blank" class="btn btn-play">
+                            <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+                                <path d="M8 5v14l11-7z" />
+                            </svg> Lecture
+                        </a>
+                        <button class="icon-only-btn popup-btn tooltip-container" id="add-to-list-btn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="24"
+                                height="24">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                            <span class="tooltip-text">Ajouter à ma liste</span>
+                        </button>
+                        <button class="icon-only-btn popup-btn tooltip-container" id="like-btn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="24"
+                                height="24">
+                                <path
+                                    d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3">
+                                </path>
+                            </svg>
+                            <span class="tooltip-text">Évaluer</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-info-netflix">
+                <div class="modal-info-left">
+                    <div class="modal-meta-row">
+                        <span class="match-score" id="modal-match-score">Recommandé à 98%</span>
+                        <span id="modal-year" class="year"></span>
+                        <span class="age-rating" id="modal-age-rating">+16</span>
+                        <span class="duration" id="modal-duration">2h 15m</span>
+                        <span class="quality" id="modal-quality">HD</span>
+                    </div>
+                    <p id="modal-description" class="modal-description-netflix"></p>
+                    
+                    <!-- TMDB Additional Info -->
+                    <div class="modal-tmdb-info" style="margin-top: 25px; padding-top: 25px; border-top: 1px solid var(--glass-border);">
+                        <div class="modal-tags">
+                            <span class="tag-label">Réalisateur :</span>
+                            <span class="tag-value" id="modal-director">Inconnu</span>
+                        </div>
+                        <div class="modal-tags">
+                            <span class="tag-label">Distribution :</span>
+                            <span class="tag-value" id="modal-cast" style="display: block; margin-top: 8px;">Casting de rêve...</span>
+                        </div>
+                        <div class="modal-tags" id="modal-keywords-container" style="display: none;">
+                            <span class="tag-label">Mots-clés :</span>
+                            <div id="modal-keywords" style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px;"></div>
+                        </div>
+                        <div class="modal-tags" id="modal-trailer-container" style="display: none; margin-top: 15px;">
+                            <a id="modal-trailer-link" href="#" target="_blank" class="btn btn-info" style="padding: 10px 20px; font-size: 0.85rem;">
+                                <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" style="margin-right: 8px;">
+                                    <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+                                </svg>
+                                Voir la bande-annonce
+                            </a>
+                        </div>
+                        <div class="modal-tags" style="margin-top: 15px; font-size: 0.8rem; color: var(--text-muted);">
+                            <span id="modal-vote-count"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-info-right">
+                    <div class="modal-tags">
+                        <span class="tag-label">Genres :</span>
+                        <span id="modal-genre" class="tag-value"></span>
+                    </div>
+                    <div class="modal-tags">
+                        <span class="tag-label">Ce film est :</span>
+                        <span class="tag-value" id="modal-mood">Captivant, Palpitant</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Netflix Style Profiles Selection -->
+    <div id="profiles-overlay" class="overlay">
+        <div class="profiles-container">
+            <h1 class="profiles-title">Qui regarde ?</h1>
+            <div class="profiles-list" id="profiles-list">
+                <!-- Profiles will be injected here -->
+                <div class="profile-item add-profile" id="add-profile-btn">
+                    <div class="profile-avatar-box">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>
+                    </div>
+                    <span class="profile-name">Ajouter un profil</span>
+                </div>
+            </div>
+            <button class="btn-manage-profiles" id="manage-profiles-btn">Gérer les profils</button>
+            <button class="btn-done-profiles" id="done-profiles-btn">Terminer</button>
+        </div>
+    </div>
+
+    <!-- Search Overlay Menu Full Screen Netflix UI -->
+    <div id="search-overlay" class="overlay search-overlay">
+        <div class="search-container">
+            <div class="search-header">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    class="search-icon-large">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input type="text" id="search-input" placeholder="Titres, personnes, genres" autocomplete="off">
+                <button class="close-search">&times;</button>
+            </div>
+            <div id="search-results" class="search-results-grid">
+                <!-- Match results here -->
+            </div>
+            <div id="search-empty" class="search-empty" style="display: none;">
+                <p>Aucun résultat trouvé pour votre recherche.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Video Player Overlay -->
+    <div id="video-player-overlay" class="overlay">
+        <div class="video-player-container">
+            <div class="video-player-topbar">
+                <button class="close-video-btn" id="close-video-btn" aria-label="Fermer la vidéo">&times;</button>
+            </div>
+            <iframe id="video-iframe" src="" allowfullscreen allow="autoplay; fullscreen" frameborder="0"></iframe>
+        </div>
+    </div>
+
+
+    <script src="tmdb.js?v=3"></script>
+    <script src="movies.js?v=13"></script>
+    <script src="scripts.js?v=12"></script>
+    
+    <!-- Smooth Scroll & Parallax Script -->
+    <script>
+        // Smooth reveal on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe content sections
+            document.querySelectorAll('.content-row-section').forEach((section, index) => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(30px)';
+                section.style.transition = `opacity 0.6s cubic-bezier(0.25, 0.1, 0.25, 1) ${index * 0.1}s, transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1) ${index * 0.1}s`;
+                observer.observe(section);
+            });
+            
+            // Hero parallax effect
+            const heroSection = document.getElementById('hero-bg');
+            if (heroSection) {
+                window.addEventListener('scroll', () => {
+                    const scrolled = window.pageYOffset;
+                    if (scrolled < 800) {
+                        heroSection.style.transform = `scale(${1.02 + scrolled * 0.0005}) translateY(${scrolled * 0.3}px)`;
+                    }
+                });
+            }
+            
+            // Smooth navbar transition
+            const navbar = document.getElementById('navbar');
+            let lastScroll = 0;
+            
+            window.addEventListener('scroll', () => {
+                const currentScroll = window.pageYOffset;
+                
+                if (currentScroll > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+                
+                lastScroll = currentScroll;
+            });
+            
+            // Smooth zoom effect on movie cards
+            document.querySelectorAll('.movie-card').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.06)';
+                    this.style.zIndex = '99';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                    this.style.zIndex = '1';
+                });
+            });
+            
+            // Magnetic button effect
+            document.querySelectorAll('.btn, .icon-btn, .slider-btn').forEach(btn => {
+                btn.addEventListener('mousemove', function(e) {
+                    const rect = this.getBoundingClientRect();
+                    const x = e.clientX - rect.left - rect.width / 2;
+                    const y = e.clientY - rect.top - rect.height / 2;
+                    
+                    this.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px) scale(1.02)`;
+                });
+                
+                btn.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translate(0, 0) scale(1)';
+                });
+            });
+            
+            // Add ripple effect on click
+            document.querySelectorAll('.btn, .icon-btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    const ripple = document.createElement('span');
+                    const rect = this.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height);
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+                    
+                    ripple.style.cssText = `
+                        position: absolute;
+                        width: ${size}px;
+                        height: ${size}px;
+                        left: ${x}px;
+                        top: ${y}px;
+                        background: rgba(255, 255, 255, 0.3);
+                        border-radius: 50%;
+                        transform: scale(0);
+                        animation: ripple-effect 0.6s ease-out;
+                        pointer-events: none;
+                    `;
+                    
+                    this.style.position = 'relative';
+                    this.style.overflow = 'hidden';
+                    this.appendChild(ripple);
+                    
+                    setTimeout(() => ripple.remove(), 600);
+                });
+            });
+            
+            // Add CSS for ripple effect
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes ripple-effect {
+                    to {
+                        transform: scale(4);
+                        opacity: 0;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+            
+            // Stagger animation for movie cards in rows
+            document.querySelectorAll('.row-container').forEach(row => {
+                const cards = row.querySelectorAll('.movie-card');
+                cards.forEach((card, index) => {
+                    card.style.opacity = '0';
+                    card.style.animation = `fade-in-up 0.5s cubic-bezier(0.25, 0.1, 0.25, 1) ${index * 0.05}s forwards`;
+                });
+            });
+            
+            // Cursor trail effect on hero (subtle)
+            const heroSection = document.querySelector('.hero-section');
+            if (heroSection) {
+                let cursorTimeout;
+                heroSection.addEventListener('mousemove', (e) => {
+                    clearTimeout(cursorTimeout);
+                    heroSection.style.cursor = 'none';
+                    cursorTimeout = setTimeout(() => {
+                        heroSection.style.cursor = 'default';
+                    }, 1000);
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
